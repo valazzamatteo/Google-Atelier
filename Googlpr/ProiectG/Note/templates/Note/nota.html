@@ -1,0 +1,9 @@
+{% extends 'Note/base.html' %}
+
+{% block content %}
+    <h1>{{ note.name }}</h1>
+    <p>Text: {{ note.text }}</p>
+    <p>Date: {{ note.date }}</p>
+    <a href="javascript:history.back()">Back</a>
+    </form>
+{% endblock %}

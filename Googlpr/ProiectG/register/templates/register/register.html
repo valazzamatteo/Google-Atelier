@@ -1,0 +1,10 @@
+{% extends "Note/base.html" %}
+
+{% block content %}
+<form method="POST" class="form-group">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-success">Register</button>
+    <a href="javascript:history.back()">Back</a>
+</form>
+{% endblock %}

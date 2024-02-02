@@ -1,0 +1,13 @@
+{% extends 'Note/base.html' %}
+
+{% block content %}
+<h1>Update</h1>
+<ul>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" name="update" action='/update'>Update</button>
+        <a href="javascript:history.back()">Back</a>
+  </form>
+</ul>
+{% endblock %}

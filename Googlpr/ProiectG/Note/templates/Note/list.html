@@ -1,0 +1,37 @@
+{% extends 'Note/base.html' %}
+
+{% block content %}
+  <h1>Note</h1>
+    <p>
+        <form method="post" action="{% url 'creat' %}" style="display: inline;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" name="save">Creat</button>
+        </form>
+         <form method="post" action="{% url 'home' %}" style="display: inline;">
+             {% csrf_token %}
+             {{ form.as_p }}
+            <button type="submit" name="save">Logout</button>
+         </form>
+    </p>
+  <ul>
+    {% for nota in lista %}
+      <li>{{ nota.name }} - {{ nota.date }}</li>
+      <form method="post" action="{% url 'update' id=nota.id %}" style="display: inline;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" name="save">Update</button>
+      </form>
+      <form method="post" action="{% url 'delete' id=nota.id %}" style="display: inline;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" name="save">Delete</button>
+      </form>
+      <form method="post" action="{% url 'nota' id=nota.id %}" style="display: inline;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" name="save">Vizonare</button>
+      </form>
+    {% endfor %}
+  </ul>
+{% endblock %}
